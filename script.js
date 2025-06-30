@@ -1,6 +1,7 @@
 // Функція для отримання назви поточної сторінки
 function getCurrentPageName() {
     const path = window.location.pathname;
+    // Повертаємо назву файлу, або порожній рядок, якщо це кореневий URL (наприклад, /test/)
     return path.substring(path.lastIndexOf('/') + 1);
 }
 
@@ -10,68 +11,76 @@ function getCurrentPageName() {
 const KINEMATIC_PAIRS_DATA = [
     {
         imageName: "1.jpg", // Сфера на вигнутій поверхні (image_bd9058.png)
-        q1_translation: "Ox, Oy, Oz",
-        q2_rotation: "Жодної",
-        q3_impossible_moves: "3",
-        q4_class: "III",
-        q5_type: "Нижча"
+        q1_translation: "Oz",
+        q2_rotation: "жодної",
+        q3_impossible_moves: "1",
+        q4_class: "I",
+        q5_type: "вища"
     },
     {
         imageName: "2.jpg", // Штифт у пазу (image_bd9079.png, рядок 4)
-        q1_translation: "Ox, Oy, Oz",
-        q2_rotation: "Oy, Oz",
-        q3_impossible_moves: "5",
-        q4_class: "V",
-        q5_type: "Нижча"
+        q1_translation: "Ox, Oy",
+        q2_rotation: "жодної",
+        q3_impossible_moves: "2",
+        q4_class: "II",
+        q5_type: "вища"
     },
     {
         imageName: "3.jpg", // Гвинтове з'єднання (image_bd9079.png, рядок 1)
         q1_translation: "Ox, Oy",
-        q2_rotation: "Ox, Oy, Oz",
-        q3_impossible_moves: "5",
-        q4_class: "V",
-        q5_type: "Нижча"
+        q2_rotation: "Ox, Oy",
+        q3_impossible_moves: "4",
+        q4_class: "IV",
+        q5_type: "нижча"
     },
     {
         imageName: "4.jpg", // Циліндричне з'єднання (image_bd9079.png, рядок 2)
-        q1_translation: "Ox, Oy",
-        q2_rotation: "Ox, 0y",
-        q3_impossible_moves: "5",
-        q4_class: "V",
-        q5_type: "Нижча"
-    },
-    {
-        imageName: "5.jpg", // Сферичне (шарнірне) з'єднання (image_bd933a.png, рядок 1)
         q1_translation: "Oy, Oz",
         q2_rotation: "Oy, Oz",
         q3_impossible_moves: "4",
         q4_class: "IV",
-        q5_type: "Нижча"
+        q5_type: "нижча"
+    },
+    {
+        imageName: "5.jpg", // Сферичне (шарнірне) з'єднання (image_bd933a.png, рядок 1)
+        q1_translation: "Ox, Oy, Oz",
+        q2_rotation: "жодної",
+        q3_impossible_moves: "3",
+        q4_class: "III",
+        q5_type: "нижча"
     },
     {
         imageName: "6.jpg", // Штифт у циліндричному отворі з осьовим рухом (image_bd933a.png, рядок 2)
-        q1_translation: "Oz",
-        q2_rotation: "Ox, Oy",
-        q3_impossible_moves: "3",
-        q4_class: "III",
-        q5_type: "Нижча"
+        q1_translation: "Ox, Oy, Oz",
+        q2_rotation: "Oy, Oz",
+        q3_impossible_moves: "5",
+        q4_class: "V",
+        q5_type: "нижча"
     },
     {
         imageName: "7.jpg", // Приклад для 9-го зображення (припустимо, це простий обертовий шарнір, якщо він не представлений в таблицях)
-        q1_translation: "Ox, Oy",
-        q2_rotation: "Жодної",
-        q3_impossible_moves: "2",
-        q4_class: "II",
-        q5_type: "Вища"
+        q1_translation: "Ox, Oy, Oz",
+        q2_rotation: "Ox, Oy",
+        q3_impossible_moves: "5",
+        q4_class: "V",
+        q5_type: "нижча"
     },
     {
         imageName: "8.jpg", // Блок на блоці (площинне) (image_bd9079.png, рядок 3)
         q1_translation: "Oz",
-        q2_rotation: "Жодної",
-        q3_impossible_moves: "1",
-        q4_class: "I",
-        q5_type: "Вища"
+        q2_rotation: "Ox, Oy",
+        q3_impossible_moves: "3",
+        q4_class: "III",
+        q5_type: "нижча"
     },
+    {
+        imageName: "9.jpg", // Ковзний блок (призматичний) (image_bd933a.png, рядок 3)
+        q1_translation: "Oy, Oz",
+        q2_rotation: "Ox, Oy, Oz",
+        q3_impossible_moves: "5",
+        q4_class: "V",
+        q5_type: "нижча"
+    }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -79,10 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Логіка навігації сторінками ---
 
-    if (currentPage === 'index.html') {
+    // Обробка кнопки "Розпочати" на index.html
+    if (currentPage === 'index.html' || currentPage === '') { // Додано || currentPage === '' для коректної роботи на GitHub Pages (коли URL закінчується на /test/)
         const startButton = document.getElementById('startButton');
         if (startButton) {
-            startButton.addEventListener('click', () => {
+            startButton.addEventListener('click', (event) => { // Додано 'event'
+                event.preventDefault(); // Запобігаємо стандартній поведінці кнопки (наприклад, якщо вона всередині форми)
                 const userName = document.getElementById('userName').value;
                 if (userName) {
                     localStorage.setItem('userName', userName);
@@ -127,8 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = 'page4.html';
             } else if (currentPage === 'page4.html') {
                 // Час завершення тестування встановлюється при натисканні "ПЕРЕВІРИТИ" (останній раз)
-                // Якщо користувач переходить кнопкою "Наступний крок", а не "Перевірити", то рахунок може бути не збережений
-                // На цей момент, перехід сюди дозволений лише після використання всіх спроб
                 window.location.href = 'page5.html';
             } else if (currentPage === 'page5.html') {
                 localStorage.removeItem('userName');
@@ -283,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 let dropdownList = document.createElement('ul');
                 dropdownList.classList.add('dropdown-list');
-                dropdownList.style.display = 'none';
+                dropdownList.style.display = 'none'; // Спочатку приховано
                 dropdownList.style.position = 'absolute';
                 dropdownList.style.backgroundColor = '#fff';
                 dropdownList.style.border = '1px solid #ccc';
@@ -305,9 +314,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     listItem.addEventListener('mouseover', () => listItem.style.backgroundColor = '#f0f0f0');
                     listItem.addEventListener('mouseout', () => listItem.style.backgroundColor = '');
                     listItem.addEventListener('click', (e) => {
-                        e.stopPropagation();
+                        e.stopPropagation(); // Запобігти закриттю кнопки одразу
                         button.textContent = option;
-                        button.dataset.value = option;
+                        button.dataset.value = option; // Зберігаємо вибране значення в data-атрибуті
                         button.classList.remove('active');
                         dropdownList.style.display = 'none';
                         clearFeedback(button); // Очищаємо зворотний зв'язок при зміні відповіді
@@ -380,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const userArray = userAnsString.split(', ').filter(Boolean).sort();
                     const correctArray = correctAnsString.split(', ').filter(Boolean).sort();
                     return userArray.length === correctArray.length &&
-                        userArray.every((val, index) => val === correctArray[index]);
+                           userArray.every((val, index) => val === correctArray[index]);
                 };
 
                 // Функція для застосування візуального зворотного зв'язку
