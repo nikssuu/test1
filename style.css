@@ -1,0 +1,644 @@
+/* --- ГЛОБАЛЬНІ СТИЛІ ТА СКИНАННЯ (RESET) --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    padding-bottom: 90px; /* Отступ для фиксированной нижней панели */
+}
+
+/* --- СТИЛІ ДЛЯ ПЕРШОЇ СТОРІНКИ (index.html) --- */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+    margin: 50px auto;
+}
+
+/* Общий h1, который используется на index.html */
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.input-group input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.input-group input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+/* Общие стили для кнопок, если они не навигационные
+   Убрал width: 100%; чтобы не мешало другим кнопкам, как .check-button
+*/
+button {
+    background-color: #28a745;
+    color: #ffffff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    /* width: 100%; <- УБРАНО ОТСЮДА, чтобы избежать конфликтов */
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* --- СТИЛІ ДЛЯ ДРУГОЇ СТОРІНКИ (page2.html) --- */
+.page2-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 50px auto;
+}
+
+.header-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.title-block {
+    flex-grow: 1;
+}
+
+.page2-container h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.score-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #555;
+    font-size: 16px;
+}
+
+.score-value {
+    font-weight: bold;
+    color: #333;
+    font-size: 18px;
+}
+
+.language-selection {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #555;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.flags {
+    display: flex;
+    gap: 10px;
+}
+
+.flag-icon {
+    width: 32px;
+    height: 24px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.flag-icon:hover {
+    transform: scale(1.05);
+}
+
+/* --- Стилі ДЛЯ ТРЕТЬОЇ СТОРІНКИ (page3.html) --- */
+
+.page3-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 50px auto;
+}
+
+.page-title {
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.theory-section {
+    padding: 0 20px;
+}
+
+.section-heading {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.section-subheading {
+    font-size: 18px;
+    color: #777;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.theory-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* --- Стилі ДЛЯ ЧЕТВЕРТОЇ СТОРІНКИ (page4.html) --- */
+
+.page4-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1000px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 50px auto;
+}
+
+.top-header {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.step-title {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.task-title {
+    font-size: 24px;
+    color: #333;
+    margin-top: 0;
+    font-weight: bold;
+}
+
+.image-section {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.image-box {
+    width: 45%;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.question-block {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+
+.question-text {
+    font-size: 17px;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Стили для input-поля, которое теперь является контейнером для кнопок */
+.question-input {
+    flex: 1;
+    min-width: 120px;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fff;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+    cursor: default;
+    min-height: 40px;
+    overflow: auto;
+
+    /* ВИПРАВЛЕНО: Видалено color: transparent; та text-shadow: 0 0 0 #aaa; */
+    /* Ці властивості робили текст всередині поля невидимим. */
+}
+
+/* Стилі для плейсхолдера, щоб він відображався коректно */
+.question-input::placeholder {
+    color: #aaa;
+    text-shadow: none;
+}
+
+
+/* Стили для групп ввода и кнопок осі */
+.input-and-choices-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.input-and-choices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+    min-width: 250px;
+}
+
+.axis-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+}
+
+/* Стилі для кнопок осі: маленькі, одна поруч з одною */
+.axis-button {
+    background-color: #3884ff;
+    color: #ffffff;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer; /* Змінено на pointer для клікабельних кнопок */
+    transition: background-color 0.2s ease;
+
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: auto;
+    min-width: unset;
+
+    text-align: center;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.axis-button:hover {
+    background-color: #2b6edc;
+}
+
+/* Стилі для кнопки, коли вона вибрана і знаходиться в полі вводу (візуальний зворотний зв'язок) */
+.axis-button.in-input-field {
+    background-color: #5cb85c;
+    color: #ffffff !important; /* Явно задаємо білий колір тексту */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.axis-button.in-input-field:hover {
+    background-color: #4cae4c;
+}
+
+/* --- НОВІ СТИЛІ ДЛЯ ЗВОРОТНОГО ЗВ'ЯЗКУ (Правильно/Неправильно) --- */
+.correct-answer {
+    border: 2px solid #28a745 !important; /* Зелений бордюр */
+    background-color: #e6ffe6 !important; /* Світло-зелений фон */
+}
+
+.incorrect-answer {
+    border: 2px solid #dc3545 !important; /* Червоний бордюр */
+    background-color: #ffe6e6 !important; /* Світло-червоний фон */
+}
+
+
+/* Стили для выпадающих списков (кнопок) */
+.dropdown-buttons-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dropdown-button {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    min-width: 200px;
+    flex-grow: 1;
+    max-width: 300px;
+}
+
+.dropdown-button:hover {
+    background-color: #e0e0e0;
+    border-color: #bbb;
+}
+
+.dropdown-button .arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333;
+    transition: transform 0.2s ease;
+}
+
+.dropdown-button.active .arrow-down {
+    transform: rotate(180deg);
+}
+
+/* Кнопка "ПЕРЕВІРИТИ" */
+.check-button {
+    background-color: #4CAF50;
+    color: #ffffff;
+    padding: 10px 20px; /* Зменшено */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px; /* Зменшено */
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Центруємо вміст кнопки */
+    gap: 10px;
+
+    width: auto !important; /* !!! Примусово встановлюємо ширину по вмісту */
+    max-width: 200px; /* Максимальна ширина */
+
+    align-self: center; /* Центруємо кнопку по горизонталі */
+    margin-top: 30px;
+
+    transition: background-color 0.3s ease;
+}
+
+.check-button:hover {
+    background-color: #43a047;
+}
+
+.check-button .check-arrow {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent; /* Зменшено */
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #ffffff;
+}
+
+
+/* --- Основна навігаційна панель внизу (фіксована) --- */
+.bottom-nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    border-top: 1px solid #eee;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.bottom-nav-bar .nav-button {
+    min-width: 120px;
+    max-width: 200px;
+    font-size: 15px;
+    padding: 10px 15px;
+
+    flex-grow: 1;
+    flex-shrink: 1;
+    box-sizing: border-box;
+}
+
+/* Цвета для кнопок навигации */
+.nav-button.gray {
+    background-color: #e0e0e0;
+    color: #555;
+}
+.nav-button.gray:hover {
+    background-color: #d0d0d0;
+}
+.nav-button.blue {
+    background-color: #2196F3;
+    color: #ffffff;
+}
+.nav-button.blue:hover {
+    background-color: #1976D2;
+}
+
+/* --- Адаптивність (MEDIA QUERIES) --- */
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 70px;
+    }
+    .container, .page2-container, .page3-container, .page4-container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    /* Page 2 specific adjustments */
+    .page2-container .nav-button {
+        min-width: 120px;
+    }
+
+    /* Page 3 specific adjustments */
+    .page3-container .navigation-buttons { /* Цей блок не має бути, якщо використовується .bottom-nav-bar */
+        flex-direction: column;
+        align-items: center;
+    }
+    .page3-container .nav-button { /* Цей блок не має бути, якщо використовується .bottom-nav-bar */
+        width: 90%;
+        max-width: 300px;
+    }
+    .page-title, .section-heading, .section-subheading, .theory-content p {
+        text-align: center;
+    }
+
+    /* Page 4 specific adjustments */
+    .image-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .image-box {
+        width: 90%;
+    }
+    .input-and-choices-group, .dropdown-buttons-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .input-and-choices, .dropdown-button {
+        min-width: unset;
+        width: 100%;
+    }
+    .axis-buttons {
+        justify-content: center;
+    }
+    /* Для input-поля, коли воно є контейнером для кнопок */
+    .question-input {
+        min-width: unset;
+        width: 100%;
+    }
+    /* Кнопка "ПЕРЕВІРИТИ" */
+    .check-button {
+        align-self: center; /* Центрируем кнопку "ПРОВЕРИТЬ" на мобильных */
+        width: 100%; /* ЦЕЙ РЯДОК РОЗТЯГУЄ КНОПКУ НА 100% НА МОБІЛЬНИХ, ЯКЩО НЕМАЄ max-width */
+        max-width: 300px; /* Додаємо max-width для контролю */
+    }
+
+    .bottom-nav-bar {
+        padding: 10px 15px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .bottom-nav-bar .nav-button {
+        width: calc(50% - 5px);
+        min-width: unset;
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+    @media (max-width: 480px) {
+        .bottom-nav-bar .nav-button {
+            width: 100%;
+        }
+    }
+}
+/* --- Стилі для П'ятої Сторінки (page5.html) --- */
+
+.page5-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Трохи менше, ніж page4, для блоку результатів */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центруємо вміст контейнера */
+    gap: 25px;
+    margin: 50px auto;
+    text-align: center; /* Загальне центрування тексту в контейнері */
+}
+
+.results-title {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.time-info p {
+    font-size: 18px;
+    color: #555;
+    margin: 8px 0;
+}
+
+.execution-time-box {
+    display: inline-block;
+    background-color: #e0e0e0; /* Сірий фон для часу виконання */
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.score-display {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+.final-score-value {
+    color: #007bff; /* Колір для балів, можна зробити червоним чи іншим */
+}
+
+/* Переконайтеся, що bottom-nav-bar вже має правильні стилі з попереднього кроку
+   і знаходиться в кінці body, як показано в page5.html. */
