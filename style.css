@@ -304,9 +304,6 @@ button:hover {
     cursor: default;
     min-height: 40px;
     overflow: auto;
-
-    /* ВИПРАВЛЕНО: Видалено color: transparent; та text-shadow: 0 0 0 #aaa; */
-    /* Ці властивості робили текст всередині поля невидимим. */
 }
 
 /* Стилі для плейсхолдера, щоб він відображався коректно */
